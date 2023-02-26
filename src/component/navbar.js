@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
-const Navbar = ()=> <>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+const Navbar = (props)=> <>
+    <nav className="navbar navbar-dark bg-dark navbar-expand-lg ">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Navbar</a>
+    <a className="navbar-brand" href="#">{props.title? props.title:'hehehe'}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -39,4 +40,14 @@ const Navbar = ()=> <>
 </nav>
 </>
 
+
+Navbar.propTypes = {
+    title: PropTypes.string.isRequired   // to set the title to string and also required
+}
+Navbar.defaultProps = {
+    title: 'defaultTitle'   //If the title is not passed then it takes the default value.
+}
+
+
 export default Navbar;
+
